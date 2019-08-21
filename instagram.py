@@ -48,7 +48,7 @@ class InstaSpider(object):
                 print(next_page_url)
                 next_html_str = requests.get(next_page_url, headers=self.headers).text
                 # 获取12条图片地址
-                next_url_list = re.findall('''display_url":(.*?)"''', next_html_str)
+                next_url_list = re.findall('''display_url":"(.*?)"''', next_html_str)
                 video_list = re.findall('"video_url":(.*?),', next_html_str)
                 if len(video_list) > 0:
                     next_url_list.extend(video_list)
